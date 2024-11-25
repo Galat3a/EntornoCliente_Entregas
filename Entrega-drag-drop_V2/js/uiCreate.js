@@ -3,15 +3,11 @@ export const uiCreate = {
         const contenedor = document.querySelector(contenedorSelector);
 
         if (contenedor) {
-            // No puedo limpiar le contenedor porque me borra las creadas
-            //contenedor.innerHTML = "";
-
-            // Crear las cartas para el palo especificado
             for (let i = 1; i <= cantidadElementos; i++) {
                 const carta = document.createElement("div");
                 carta.classList.add("carta");
-                carta.style.backgroundColor = color; // Establecer color de la carta
-                carta.setAttribute("draggable", true); // Hacer que la carta sea arrastrable
+                carta.style.backgroundColor = color; 
+                carta.setAttribute("draggable", true); 
 
                 // Asignar propiedades
                 carta.id = `${palo}-${i}`;
@@ -23,9 +19,9 @@ export const uiCreate = {
                 const div2 = document.createElement("div");
                 const div3 = document.createElement("div");
 
-                div1.textContent = i; // Número
-                div2.textContent = palo; // Palo (Oros, Bastos, etc.)
-                div3.textContent = i; // Número otra vez
+                div1.textContent = i; 
+                div2.textContent = palo; 
+                div3.textContent = i;
 
                 carta.appendChild(div1);
                 carta.appendChild(div2);

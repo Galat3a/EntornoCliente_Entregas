@@ -1,46 +1,59 @@
 export const uiDrag = {
     init: (selectorContenedor, selectorElemento) => {
         document.querySelectorAll(selectorContenedor).forEach((contenedor) => {
-            // Establecer datos del contenedor (palo y color)
+    
             switch (contenedor.id) {
                 case "contenedorO":
                     contenedor.dataset.palo = "Oros";
-                    contenedor.dataset.color = "yellow";
+                    contenedor.dataset.color = "#FFFFB3";
                     break;
                 case "contenedorBastos":
                     contenedor.dataset.palo = "Bastos";
-                    contenedor.dataset.color = "green";
+                    contenedor.dataset.color = "#B3FFB3";
                     break;
                 case "contenedorE":
                     contenedor.dataset.palo = "Espadas";
-                    contenedor.dataset.color = "blue";
+                    contenedor.dataset.color = "#B3D9FF";
                     break;
                 case "contenedorC":
                     contenedor.dataset.palo = "Copas";
-                    contenedor.dataset.color = "red";
+                    contenedor.dataset.color = "#FFB3B3";
                     break;
             }
 
-            // Evento para manejar el "drop" (cuando se suelta la carta)
+            
             contenedor.addEventListener("drop", (event) => {
-                event.preventDefault(); // Prevenir la acción predeterminada
+                event.preventDefault(); 
 
                 const data = JSON.parse(event.dataTransfer.getData("text"));
                 const draggedElement = document.getElementById(data.id);
 
-                const paloContenedor = contenedor.dataset.palo; // Palo del contenedor
-                const paloElemento = draggedElement.dataset.palo; // Palo del elemento arrastrado
+                const paloContenedor = contenedor.dataset.palo; 
+                const paloElemento = draggedElement.dataset.palo; 
 
-                // Verificar si el palo del contenedor coincide con el palo de la carta
+              
                 if (paloContenedor === paloElemento) {
-                    draggedElement.style.backgroundColor = contenedor.dataset.color; // Cambiar color de la carta al del contenedor
-                    draggedElement.dataset.palo = paloContenedor; // Actualizar el palo de la carta
+                    draggedElement.style.backgroundColor = contenedor.dataset.color; 
+                    draggedElement.dataset.palo = paloContenedor; 
 
                     console.log(`El elemento ha sido soltado en el contenedor con palo: ${contenedor.dataset.palo}`);
                     console.log(`Elemento con ID: ${draggedElement.id} tiene el palo: ${draggedElement.dataset.palo}`);
 
-                    // Colocar el elemento arrastrado dentro del contenedor
+                    
                     contenedor.appendChild(draggedElement);
+                    
+                    draggedElement.style.zIndex = 10;
+                    anime({
+                        targets: draggedElement,
+                        rotateY: [0, 360], 
+                        opacity: [0, 1],    
+                        easing: 'easeInOutCubic',
+                        duration: 800,      
+                        complete: function() {
+                         
+                            draggedElement.style.zIndex = ''; 
+                        }
+                    });
                 } else {
                     // Si el palo no coincide, devolver el elemento al contenedor original
                     const contenedorGeneral = document.getElementById("contenedorGeneral");

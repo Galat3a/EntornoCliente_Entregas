@@ -1,126 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arrastrar y Soltar</title>
-    <style>
-      /* Estilo global */
-      body {
-          font-family: Arial, sans-serif;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: center;
-          height: 100vh;
-          margin: 0;
-          padding: 0;
-          background-color: #f0f0f0;
-          overflow: hidden;
-      }
-
-      /* Contenedores para los palos (Oros, Bastos, Espadas, Copas) */
-      .contenedorBarajasPalos {
-          display: flex;
-          justify-content: center;
-          gap: 30px;
-          width: 100%;
-          height: 40%;
-          padding: 10px;
-          margin-top: 20px;
-      }
-
-      .contenedorOros,
-      .contenedorEspadas,
-      .contenedorCopas,
-      .contenedorBastos {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 10px;
-          width: 22%;
-          height: 100%;
-          padding: 10px;
-          border: 2px solid #ccc;
-          background-color: #f4f4f4;
-          box-sizing: border-box;
-          overflow-y: auto;
-      }
-
-      /* Contenedor general de cartas */
-      .contenedorBaraja {
-          display: flex;
-          flex-flow: row wrap;
-          justify-content: center;
-          align-items: center;
-          gap: 15px;
-          width: 80%;
-          height: 50%;
-          padding: 20px;
-          margin-top: 20px;
-          border: 2px dotted #ccc;
-          background-color: #ffffff;
-          box-sizing: border-box;
-          overflow-x: scroll;
-      }
-
-      /* Estilo de las cartas */
-      .carta {
-          width: 80px;
-          height: 120px;
-          background-color: white;
-          border-radius: 8px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-          padding: 10px;
-          text-align: center;
-          cursor: move;
-          position: relative;
-          transition: transform 0.2s ease;
-      }
-
-      /* Efectos visuales de las cartas */
-      .carta:hover {
-          transform: scale(1.05);
-      }
-
-      .carta:active {
-          opacity: 0.8;
-      }
-
-      /* Estilos para los divs dentro de la carta */
-      .carta div {
-          font-size: 1.2em;
-          font-weight: bold;
-      }
-
-      .carta div:nth-child(2) {
-          color: gray;
-      }
-  </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <!-- Contenedores para los palos -->
     <div class="contenedorBarajasPalos">
-        <h2>OROS</h2>
-        <div class="contenedorOros" id="contenedorO"></div>
-        <h2>ESPADAS</h2>
-        <div class="contenedorEspadas" id="contenedorE"></div>
-        <h2>COPAS</h2>
-        <div class="contenedorCopas" id="contenedorC"></div>
-        <h2>BASTOS</h2>
-        <div class="contenedorBastos" id="contenedorBastos"></div>
+
+        <div class="contenedorOros" id="contenedorO">OROS</div>
+
+        <div class="contenedorEspadas" id="contenedorE">ESPADAS</div>
+ 
+        <div class="contenedorCopas" id="contenedorC">COPAS</div>
+     
+        <div class="contenedorBastos" id="contenedorBastos">BASTOS</div>
     </div>
+    <br>
 
     <!-- Contenedor general donde se crean las cartas -->
     <div class="contenedorBaraja">
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
     <script type="module" src="./js/index.js"></script>
 </body>
-</html>
 
+</html>
