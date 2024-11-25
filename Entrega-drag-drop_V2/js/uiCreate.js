@@ -3,8 +3,8 @@ export const uiCreate = {
         const contenedor = document.querySelector(contenedorSelector);
 
         if (contenedor) {
-            // Limpiar el contenido del contenedor si ya tiene algo
-            contenedor.innerHTML = "";
+            // No puedo limpiar le contenedor porque me borra las creadas
+            //contenedor.innerHTML = "";
 
             // Crear las cartas para el palo especificado
             for (let i = 1; i <= cantidadElementos; i++) {
